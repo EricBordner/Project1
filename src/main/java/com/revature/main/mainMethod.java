@@ -12,7 +12,7 @@ public class mainMethod {
 		//app.start();
 		
 		app.get("/employees", EmployeeController.getAllEmployees);
-		app.post("/login", EmployeeController.loginEmployee);
+		app.post("/secondlogin", EmployeeController.loginEmployee);
 		
 		
 		//making a change to check Github

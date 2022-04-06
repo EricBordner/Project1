@@ -15,7 +15,7 @@ public class ServicePostgress implements ServiceInt {
 	}
 
 	@Override
-	public boolean loginEmployee(Employee employeeObject) {
+	public Employee loginEmployee(Employee employeeObject) {
 		return dao.loginEmployee(employeeObject);
 	}
 

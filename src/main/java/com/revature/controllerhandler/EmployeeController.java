@@ -17,7 +17,7 @@ public class EmployeeController {
 	};
 	public static Handler loginEmployee = ctx-> {
 		Employee employeeObject = ctx.bodyAsClass(Employee.class);
-		boolean login = service.loginEmployee(employeeObject);
+		Employee login = service.loginEmployee(employeeObject);
 		ctx.json(login);
 	};
 }
