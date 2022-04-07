@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.clientandmanagers.Employee;
+import com.revature.clientandmanagers.Expense;
 import com.revature.connection.ConnectionUtility;
+import com.revature.logging.LoggingClas;
 
 public class EmployeePostgressDAO implements employeeDAO {
 
@@ -70,6 +72,28 @@ public class EmployeePostgressDAO implements employeeDAO {
 			e.printStackTrace();
 		}
 		return employeeObjectReturn;
+	}
+
+	@Override
+	public void reimbursementEmployee(String formAmount, String formRT, String formDescription) {
+		         LoggingClas log = new LoggingClas();
+		         System.out.println("In the DAO postgress");
+			String insertFormData = "INSERT INTO manager(reimbursementid, amount,description,reimbursementtype) VALUES(?,?,?,?)";
+			try (Connection conn = ConnectionUtility.createConnection();){
+				PreparedStatement ptsmt = conn.prepareStatement(insertFormData);
+				ptsmt.setInt(1, 100);
+				ptsmt.setFloat(2,Float.parseFloat(formAmount));
+				ptsmt.setString(3, formRT);
+				ptsmt.setString(4, formDescription);
+			
+				ptsmt.executeQuery();
+				System.out.println("In the try in DAO " +formAmount+ " " + formRT + " " +formDescription);
+				log.loggingTroubleShoot();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+				
+		
 	}
 
 }

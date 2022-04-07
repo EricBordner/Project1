@@ -1,29 +1,40 @@
 <html>    
     <head>    
-        <title>Registration Form</title>    
-    </head>    
-    <body>    
-        <link href = "registration.css" type = "text/css" rel = "stylesheet" />    
-        <h2>Sign Up</h2>    
-        <form name = "form1" action="modified.php" method = "post" enctype = "multipart/form-data" >    
-            <div class = "container">    
-                <div class = "form_group">    
-                    <label>First Name:</label>    
-                    <input type = "text" name = "fname" value = "" required/>    
-                </div>    
-                <div class = "form_group">    
-                    <label>Middle Name:</label>    
-                    <input type = "text" name = "mname" value = "" required />    
-                </div>    
-                <div class = "form_group">    
-                    <label>Last Name:</label>    
-                    <input type = "text" name = "lname" value = "" required/>    
-                </div>    
-                <div class = "form_group">    
-                    <label>Password:</label>    
-                    <input type = "password" name = "pwd" value = "" required/>    
-                </div>    
-            </div>    
-        </form>    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/cssfornav.css"/>
+<script src="javascript/script.js"></script>
+        <title>FormPractice</title>    
+    </head> 
+    <header>
+    <nav>
+<ul>
+<li>
+<a href = "/index.html">Index</a>
+</li>
+<li>
+<a href="/secondlogin.html">Login</a>
+</li>
+<li>
+<a href="/formpage.html">ExpenseForm</a>
+</li>
+</ul>
+</nav>
+    </header>   
+    <body>   
+     
+        <form action="/reimbursementEmployee" method="POST">
+        	<label for="amount">Enter the Amount</label>
+        	<input name="amount" type="number"> 
+        	<br>
+        	<label for="reimbursementtype">Enter Type:</label>
+        	<input name="reimbursementtype" type="text"> 
+        	<br>
+        	<label for="description">Enter Description:</label>
+        	<textarea name="description" cols="60" rows="10">Describe</textarea>  
+        	<br>
+        	<input type="submit" value="Submit Form">
+        </form>  
+        <br>
+           
     </body>    
 </html>    

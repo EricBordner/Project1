@@ -18,5 +18,8 @@ public class LoggingClas {
 	 public void loggingLogin(int id) {
 		 logger.info("An employee has just logged in " + id);
 	 }
+	 public void loggingTroubleShoot() {
+		 logger.info("Marking Terrotory");
+	 }
 	
 }// this ends class LoggingClas

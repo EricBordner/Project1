@@ -19,7 +19,7 @@ async function loginFunction(username, password){
 				alert("This works you are a manager");
 			}
 				
-			else {window.location.href="/index.html"} 
+			else {window.location.href="/formpage.html"} 
 		}
 		
 		
