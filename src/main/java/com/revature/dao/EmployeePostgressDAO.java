@@ -39,8 +39,9 @@ public class EmployeePostgressDAO implements employeeDAO {
 		return eList;
 	}
 
-	public boolean loginEmployee(Employee employeeObject) {
+	public Employee loginEmployee(Employee employeeObject) {
 		boolean returnValue = false; 
+		Employee employeeObjectReturn = new Employee(); 
 		String selectEmployees = "select * from employee";
 		try (Connection conn = ConnectionUtility.createConnection();){
 			PreparedStatement ptsmt = conn.prepareStatement(selectEmployees);
@@ -48,13 +49,17 @@ public class EmployeePostgressDAO implements employeeDAO {
 			rs = ptsmt.executeQuery();
 			String employeeUsername = employeeObject.getUser();
 			String employeePassword = employeeObject.getPassword();
+			
 				while (rs.next()) {
 					int id = rs.getInt("user_id");
 					String type = rs.getString("employeetype");
 					String password = rs.getString("password");
 					String user = rs.getString("username"); 
 					if (employeeUsername.equals(user) && employeePassword.equals(password)) {
-						returnValue = true;
+						employeeObjectReturn.setUser(employeeUsername);
+						employeeObjectReturn.setPassword(employeePassword);
+						employeeObjectReturn.setType(type);
+						//returnValue = true;
 						break; //ends while loop
 					};
 						
@@ -64,7 +69,7 @@ public class EmployeePostgressDAO implements employeeDAO {
 			
 			e.printStackTrace();
 		}
-		return returnValue;
+		return employeeObjectReturn;
 	}
 
 }

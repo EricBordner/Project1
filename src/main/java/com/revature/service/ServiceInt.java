@@ -7,6 +7,6 @@ import com.revature.clientandmanagers.Employee;
 public interface ServiceInt {
 	List<Employee> getAllEmployees();
 
-	boolean loginEmployee(Employee employeeObject);
+	Employee loginEmployee(Employee employeeObject);
 	
 }
