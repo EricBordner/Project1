@@ -11,7 +11,7 @@
   </PatternLayout>
   <Policies>
       <OnStartupTriggeringPolicy />
-        <SizeBasedTriggeringPolicy size="10 MB" />
+        <SizeBasedTriggeringPolicy size="99 KB" />
         <TimeBasedTriggeringPolicy />
   </Policies>
   <DefaultRolloverStrategy max="5" />

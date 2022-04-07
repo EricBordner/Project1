@@ -10,7 +10,7 @@ async function loginFunction(username, password){
 		headers:{'Content-Type':'application/json'}, 
 		body:JSON.stringify(username1)} );
 		let result = await response.json();
-		alert(result);
+		//alert(result);
 		console.log(result.user);
 		if(result.user === null){alert("Resubmit")}
 		else {
@@ -32,6 +32,10 @@ async function loginFunction(username, password){
 function getInputFunction(){
 	let username = document.getElementById("user").value   //usernametextbox
 	let password = document.getElementById("password").value   //passwordtextbox
-	alert("thisisworking" + username + ""+ password)
+	//alert("thisisworking" + username + ""+ password)
 	loginFunction(username, password)
+}
+
+function refreshPage(){
+	window.location.href="/secondlogin.html";
 }
