@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <RollingFile
+  name="rollingFile"
+  fileName="C:\\Logging\\application.log"
+  filePattern="C:\\Logging\\application.%d{dd-MMM}.log.gz"
+  ignoreExceptions="false">
+  <PatternLayout>
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+  </PatternLayout>
+  <Policies>
+      <OnStartupTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="10 MB" />
+        <TimeBasedTriggeringPolicy />
+  </Policies>
+  <DefaultRolloverStrategy max="5" />
+</RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="rollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
