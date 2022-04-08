@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,11 @@ import com.revature.connection.ConnectionUtility;
 import com.revature.logging.LoggingClas;
 
 public class EmployeePostgressDAO implements employeeDAO {
-
+	LocalDateTime myDateObj = LocalDateTime.now();
+	DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+	String formattedDate = myDateObj.format(myFormatObj);
+	
+	
 	public List<Employee> getAllEmployees() {
 		Connection conn = ConnectionUtility.createConnection();
 		String selectEmployees = "select * from employee";
@@ -44,6 +50,7 @@ public class EmployeePostgressDAO implements employeeDAO {
 		
 		return eList;
 	}
+
 
 	public Employee loginEmployee(Employee employeeObject) {
 		boolean returnValue = false; 
@@ -81,21 +88,17 @@ public class EmployeePostgressDAO implements employeeDAO {
 	@Override
 	public void reimbursementEmployee(String formAmount, String formRT, String formDescription) {
 		         LoggingClas log = new LoggingClas();
-		         //System.out.println("In the DAO postgress");
-		         LocalDate d = LocalDate.of (2022,4,8) ;
-		         ZoneId z = ZoneId.of ( "America/Montreal" ) ;
-		         ZonedDateTime zdt = d.atStartOfDay( z ) ;
-		         Instant instant = zdt.toInstant() ;
-		         java.sql.Timestamp ts = java.sql.Timestamp.from ( instant ) ;
+		        
+		         
 		         
 			String insertFormData = "INSERT INTO manager(reimbursementid, amount,reimbursementtype,description,submittime) VALUES(?,?,?,?,?)";
 			try (Connection conn = ConnectionUtility.createConnection();){
 				PreparedStatement ptsmt = conn.prepareStatement(insertFormData);
-				ptsmt.setInt(1, 97);
+				ptsmt.setInt(1, 96);
 				ptsmt.setFloat(2,Float.parseFloat(formAmount));
 				ptsmt.setString(3, formRT);
 				ptsmt.setString(4, formDescription);
-				ptsmt.setString(5, instant.toString());
+				ptsmt.setString(5, formattedDate);
 			
 				ptsmt.executeQuery();
 				System.out.println("In the try in DAO " +formAmount+ " " + formRT + " " +formDescription);

@@ -5,7 +5,7 @@ async function loginFunction(username, password){
 		user:username,
 		password:password 
 	};
-	let response = await fetch(url + 'secondlogin', {
+	let response = await fetch(url + 'second', {
 		method:'POST',
 		headers:{'Content-Type':'application/json'}, 
 		body:JSON.stringify(username1)} );
